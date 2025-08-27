@@ -1,25 +1,35 @@
 package com.chatapp.chatapp.dto;
 
 public class MessageRequest {
-    private Long senderId;
-    private Long receiverId;
+    private String sender;
+    private String receiver;
+
+    public MessageRequest(String sender, String receiver, String content) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.content = content;
+    }
+
     private String content;
 
-    public Long getSenderId()
+    private String fileUrl;
+    private String fileType;
+
+    public String getSender()
     {
-        return senderId;
+        return sender;
     }
-    public void setSenderId(Long senderId)
+    public void setSender(String sender)
     {
-        this.senderId=senderId;
+        this.sender=sender;
     }
-    public Long getReceiverId()
+    public String getReceiver()
     {
-        return receiverId;
+        return receiver;
     }
-    public void setReceiverId(Long receiverId)
+    public void setReceiver(String receiver)
     {
-        this.receiverId=receiverId;
+        this.receiver=receiver;
     }
     public String getContent() {
         return content;
@@ -27,5 +37,18 @@ public class MessageRequest {
     public void setContent(String content)
     {
         this.content=content;
+    }
+    public String getFileUrl() {
+        return fileUrl;
+    }
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 }
