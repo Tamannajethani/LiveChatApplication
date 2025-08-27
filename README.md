@@ -59,6 +59,10 @@ POST /files/upload – upload a file to uploads/ folder
 Send message: /app/sendMessage
 Subscribe to messages: /topic/messages
 
+## Internship Task - Next24tech
+
+This project is Task2 for the Java Development Internship at Next24tech.
+
 ## Final Status
 
 Text & media chat fully functional
