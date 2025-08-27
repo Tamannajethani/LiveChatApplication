@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name="messages")
 public class Message {
 
     @Id
@@ -13,6 +14,10 @@ public class Message {
 
     private String sender;
     private String receiver;
+
+    private String fileUrl;
+    private String fileType;
+
 
     @Column(columnDefinition = "TEXT")
     private String content;
@@ -25,9 +30,11 @@ public class Message {
         this.sender = sender;
         this.receiver = receiver;
         this.content = content;
-        this.sentAt = sentAt;
     }
-
+    @PrePersist
+    protected void onCreate() {
+        sentAt = LocalDateTime.now();
+    }
     public String getSender() {
         return sender;
     }
@@ -50,6 +57,22 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getFileUrl() {
+        return fileUrl;
+    }
+
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
     public LocalDateTime getSentAt() {
